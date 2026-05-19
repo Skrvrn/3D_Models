@@ -6,6 +6,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      background: #ffffff;
     }
 
     /* Скрываем значок мобильного телефона */
@@ -22,7 +23,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Viewer - Display a 3D model</title>
+    <title>3D Viewer</title>
     <script
       type="module"
       src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"
@@ -37,8 +38,10 @@
       tone-mapping="neutral"
       poster="poster.webp"
       shadow-intensity="1"
-      camera-orbit="-213deg 83.6deg 64.5m"
-      field-of-view="17.9deg"
+      auto-rotate
+      exposure="1.5"
+      camera-orbit="-235.5deg 88.52deg 52.18m"
+      field-of-view="13.48deg"
     >
       <div class="progress-bar hide" slot="progress-bar">
         <div class="update-bar"></div>
