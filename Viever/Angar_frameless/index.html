@@ -41,6 +41,9 @@
       border-radius: 50%;
       animation: spin 1s linear infinite;
     }
+    .done {
+      display: none;
+    }
     @keyframes spin {
       0% {
         transform: rotate(0deg);
@@ -88,7 +91,7 @@
       <div class="progress-bar hide" slot="progress-bar">
         <div class="update-bar"></div>
       </div>
-      <button slot="ar-button" id="ar-button"></button>
+      <button class="done" slot="ar-button" id="ar-button"></button>
       <div id="ar-prompt">
         <img src="https://modelviewer.dev/shared-assets/icons/hand.png" />
       </div>
