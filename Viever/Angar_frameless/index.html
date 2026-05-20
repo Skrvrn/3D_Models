@@ -7,21 +7,16 @@
       padding: 0;
       box-sizing: border-box;
     }
-    .background {
-      background-image: url("img/BG.png");
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-attachment: fixed;
-      min-height: 100vh;
-      margin: 0;
-    }
     /* Скрываем значок мобильного телефона */
     #ar-prompt {
       display: none;
     }
     .done {
       display: none;
+    }
+    .info {
+      position: fixed;
+      z-index: -1;
     }
     /* Делаем 3D плеер на весь браузер */
     model-viewer {
@@ -78,9 +73,17 @@
       };
     </script>
   </head>
-  <body class="background">
+  <body>
     <div id="preloader">
       <div class="spinner"></div>
+    </div>
+    <div class="t-redactor__text info">
+      <p style="text-align: right">
+        <sub
+          >Загрузка 3D-модели может занять некоторое время. Пожалуйста,
+          подождите.</sub
+        >
+      </p>
     </div>
     <model-viewer
       src="Angar_naves_.glb"
