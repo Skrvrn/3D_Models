@@ -6,47 +6,90 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      background: #ffffff;
     }
-
     /* Скрываем значок мобильного телефона */
     #ar-prompt {
       display: none;
     }
-
+    .done {
+      display: none;
+    }
     /* Делаем 3D плеер на весь браузер */
     model-viewer {
       height: 100vh;
       width: 100%;
+      background: #ffffff;
+    }
+    /* Спинер */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      transition: 3s;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #e63e41;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
   </style>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3D Viewer</title>
+
     <script
       type="module"
       src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"
     ></script>
+    <script>
+      window.onload = function () {
+        setTimeout(
+          () => (document.getElementById("preloader").style.display = "none"),
+          3000,
+        );
+      };
+    </script>
   </head>
   <body>
     <model-viewer
-      src="Angar_naves_.glb"
+      src="Angar_2.glb"
       ar
       ar-modes="webxr scene-viewer quick-look"
       camera-controls
       tone-mapping="neutral"
       poster="poster.webp"
       shadow-intensity="1"
+      camera-orbit="-763deg 83.19deg 78.03m"
+      field-of-view="15.67deg"
       auto-rotate
-      exposure="1.5"
-      camera-orbit="-235.5deg 88.52deg 52.18m"
-      field-of-view="13.48deg"
     >
+      <div id="preloader">
+        <div class="spinner"></div>
+      </div>
+
       <div class="progress-bar hide" slot="progress-bar">
         <div class="update-bar"></div>
       </div>
-      <button slot="ar-button" id="ar-button">View in your space</button>
+      <button class="done" slot="ar-button" id="ar-button"></button>
       <div id="ar-prompt">
         <img src="https://modelviewer.dev/shared-assets/icons/hand.png" />
       </div>
