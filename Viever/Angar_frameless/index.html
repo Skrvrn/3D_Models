@@ -14,10 +14,6 @@
     .done {
       display: none;
     }
-    .info {
-      position: fixed;
-      z-index: -1;
-    }
     /* Делаем 3D плеер на весь браузер */
     model-viewer {
       height: 100vh;
@@ -77,14 +73,6 @@
     <div id="preloader">
       <div class="spinner"></div>
     </div>
-    <div class="t-redactor__text info">
-      <p style="text-align: right">
-        <sub
-          >Загрузка 3D-модели может занять некоторое время. Пожалуйста,
-          подождите.</sub
-        >
-      </p>
-    </div>
     <model-viewer
       src="Angar_naves_.glb"
       ar
@@ -106,5 +94,13 @@
         <img src="https://modelviewer.dev/shared-assets/icons/hand.png" />
       </div>
     </model-viewer>
+    <div class="t-redactor__text">
+      <p style="text-align: right">
+        <sub
+          >Загрузка 3D-модели может занять некоторое время. Пожалуйста,
+          подождите.</sub
+        >
+      </p>
+    </div>
   </body>
 </html>
